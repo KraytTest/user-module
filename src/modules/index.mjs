@@ -878,6 +878,22 @@ export default class PrismaUserModule extends PrismaModule {
 
   }
 
+  renderApiSchema() {
+
+    let schemaFile = "src/schema/generated/api.graphql";
+
+    let baseSchema = "";
+
+    if (fs.existsSync(schemaFile)) {
+      baseSchema = fs.readFileSync(schemaFile, "utf-8");
+    }
+    // else {
+    //   console.log("file not exists");
+    // }
+
+    return baseSchema;
+  }
+
 
   getResolvers() {
 
@@ -899,6 +915,7 @@ export default class PrismaUserModule extends PrismaModule {
         user: this.user.bind(this),
         me: this.me.bind(this),
         userGroups: this.userGroups.bind(this),
+        apiSchema: this.renderApiSchema,
       },
       Mutation: {
         ...Mutation,

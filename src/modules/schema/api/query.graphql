@@ -1,5 +1,6 @@
  
 type Query { 
   me: User
+  """Client api schema for @prisma-cms/front"""
+  apiSchema: String!
 }
- 

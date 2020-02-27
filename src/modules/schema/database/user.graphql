@@ -37,5 +37,7 @@ type User{
 
   """Hide profile"""
   hidden: Boolean @default(value: false)
+
+  sudo: Boolean @default (value: false)
 }
  
